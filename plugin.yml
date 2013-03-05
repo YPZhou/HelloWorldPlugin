@@ -1,0 +1,16 @@
+    name: HelloWorldPlugin
+    main: com.gmail.argoran.helloWorldPlugin.HelloWorldPlugin 
+    version: 1.0.2
+    author: YunpengZHOU
+    description: A simple plugin with integrated functionalities.
+    
+    commands:
+      hw_change_name:
+        description: Change player's in game name.
+        usage: /hw_change_name <name>
+      hw_teleport_mine:
+        description: Teleport player from paluta to mine.
+        usage: /hw_teleport_mine
+      hw_teleport_paluta:
+        description: Teleport player from any land portal to paluta.
+        usage: /hw_teleport_paluta
