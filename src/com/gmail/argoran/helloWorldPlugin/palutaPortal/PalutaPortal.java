@@ -10,6 +10,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 import com.gmail.argoran.helloWorldPlugin.HelloWorldPlugin;
 import com.gmail.argoran.helloWorldPlugin.util.messageColor.MessageColor;
@@ -35,9 +36,10 @@ public class PalutaPortal implements Listener, CommandExecutor {
 		if ((xFrom != 154 || zFrom != 273) && xTo == 154 && zTo == 273 && yTo >= 150) {
 			Player player = _event.getPlayer();
 			Inventory inventory = player.getInventory();
-			if (inventory.contains(Material.DIRT)) {
+			ItemStack[] content = inventory.getContents();
+			if (content[8] != null && content[8].getType() == Material.DIRT) {
 				player.teleport(new Location(player.getWorld(), 96.5, 56.0, 262.0));
-				this.plugin_.getServer().broadcastMessage(MessageColor.colorPlayerName(player.getDisplayName()) + " has travelled to mine through portal .");
+				this.plugin_.getServer().broadcastMessage(MessageColor.colorPlayerName(player.getDisplayName()) + " has travelled to " + MessageColor.colorLocation("mine") + " through portal .");
 			} else {
 				this.plugin_.getServer().broadcastMessage(MessageColor.colorPlayerName(player.getDisplayName()) + " does not have the correct key .");
 			}
@@ -46,9 +48,10 @@ public class PalutaPortal implements Listener, CommandExecutor {
 		if ((xFrom != 96 || zFrom != 262) && xTo == 96 && zTo == 262 && yTo >= 56 && yTo <= 59) {
 			Player player = _event.getPlayer();
 			Inventory inventory = player.getInventory();
-			if (inventory.contains(Material.DIRT)) {
+			ItemStack[] content = inventory.getContents();
+			if (content[8] != null && content[8].getType() == Material.COBBLESTONE) {
 				player.teleport(new Location(player.getWorld(), 154.0, 150.0, 273.0));
-				this.plugin_.getServer().broadcastMessage(MessageColor.colorPlayerName(player.getDisplayName()) + " has travelled to Paluta through portal .");
+				this.plugin_.getServer().broadcastMessage(MessageColor.colorPlayerName(player.getDisplayName()) + " has travelled to " + MessageColor.colorLocation("Paluta") + " through portal .");
 			} else {
 				this.plugin_.getServer().broadcastMessage(MessageColor.colorPlayerName(player.getDisplayName()) + " does not have the correct key .");
 			}
@@ -67,7 +70,7 @@ public class PalutaPortal implements Listener, CommandExecutor {
 				double z = loc.getZ();
 				if (x > 152.3 && x < 156.7 && z > 271.3 && z < 275.7 && y >= 150) {
 					player.teleport(new Location(player.getWorld(), 96.5, 56.0, 262.0));
-					this.plugin_.getServer().broadcastMessage(MessageColor.colorPlayerName(player.getDisplayName()) + " has travelled to mine through portal .");
+					this.plugin_.getServer().broadcastMessage(MessageColor.colorPlayerName(player.getDisplayName()) + " has travelled to " + MessageColor.colorLocation("mine") + " through portal .");
 				} else {
 					this.plugin_.getServer().broadcastMessage(MessageColor.colorPlayerName(player.getDisplayName()) + " shouted some words and performed some gestures, but nothing happened .");
 				}
@@ -83,7 +86,7 @@ public class PalutaPortal implements Listener, CommandExecutor {
 				double z = loc.getZ();
 				if (x > 95.3 && x < 98.7 && z > 260.3 && z < 264.7 && y >= 56 && y <= 59) {
 					player.teleport(new Location(player.getWorld(), 154.0, 150.0, 273.0));
-					this.plugin_.getServer().broadcastMessage(MessageColor.colorPlayerName(player.getDisplayName()) + " has travelled to Paluta through portal .");
+					this.plugin_.getServer().broadcastMessage(MessageColor.colorPlayerName(player.getDisplayName()) + " has travelled to " + MessageColor.colorLocation("Paluta") + " through portal .");
 				} else {
 					this.plugin_.getServer().broadcastMessage(MessageColor.colorPlayerName(player.getDisplayName()) + " shouted some words and performed some gestures, but nothing happened .");
 				}

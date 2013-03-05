@@ -10,4 +10,8 @@ public class MessageColor {
 	public static String colorDamage(int _damage) {
 		return ChatColor.RED.toString().concat(String.valueOf(_damage)).concat(ChatColor.WHITE.toString());
 	}
+	
+	public static String colorLocation(String _location) {
+		return ChatColor.YELLOW.toString().concat(String.valueOf(_location)).concat(ChatColor.WHITE.toString());
+	}
 }
